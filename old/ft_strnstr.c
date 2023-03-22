@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahbasara <ahbasara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 22:17:23 by ahbasara          #+#    #+#             */
-/*   Updated: 2022/12/19 22:18:47 by ahbasara         ###   ########.fr       */
+/*   Created: 2022/12/12 08:42:57 by codespace         #+#    #+#             */
+/*   Updated: 2022/12/19 23:11:08 by ahbasara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	size_t		position;
+
+	if (*to_find == '\0')
+		return ((char *)str);
+	position = ft_strlen((char *)to_find);
+	while (*str != '\0' && len-- >= position)
+	{
+		if (*str == *to_find && ft_memcmp(str, to_find, position) == 0)
+			return ((char *)str);
+		str++;
+	}
+	return (NULL);
 }
-/* 
-int	main(void)
-{
-	ft_putendl_fd("aaa",1);
-}
- */

@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahbasara <ahbasara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 22:17:23 by ahbasara          #+#    #+#             */
-/*   Updated: 2022/12/19 22:18:47 by ahbasara         ###   ########.fr       */
+/*   Created: 2022/12/09 15:24:00 by ahbasara          #+#    #+#             */
+/*   Updated: 2022/12/09 15:24:00 by ahbasara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+size_t	ft_strlen(const char *s)
 {
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	size_t	c;
+
+	c = 0;
+	while (s[c])
+		c++;
+	return (c);
 }
 /* 
 int	main(void)
 {
-	ft_putendl_fd("aaa",1);
+	size_t s;
+	char *arr = "faruk";
+
+	s = ft_strlen(arr);
+	printf("%zu\n", s);
 }
  */
